@@ -5,11 +5,23 @@
          version="4.0">
 
     <servlet>
-        <servlet-name>FirstJSP</servlet-name>
-        <jsp-file>/indexJSP.jsp</jsp-file>
+        <servlet-name>add</servlet-name>
+        <servlet-class>app.servlets.AddServlet</servlet-class>
     </servlet>
+
     <servlet-mapping>
-        <servlet-name>FirstJSP</servlet-name>
-        <url-pattern>/</url-pattern>
+        <servlet-name>add</servlet-name>
+        <url-pattern>/add</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>list</servlet-name>
+        <servlet-class>app.servlets.ListServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>list</servlet-name>
+        <url-pattern>/list</url-pattern>
+    </servlet-mapping>
+
 </web-app>
