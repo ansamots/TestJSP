@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<project name="TestJAR" default="show">
+    <target name="createDir">
+        <mkdir dir="jarFiles"/>
+    </target>
+    <target name="archive" depends="createDir">
+        <javac destdir="origin" includeantruntime="false">
+            <src path="jarFiles"/>
+        </javac>
+    </target>
+    <target name="show" depends="archive">
+        <java classname="Test" classpath="jarFiles"/>
+    </target>
+    <target name="clean">
+        <delete dir="JarFiles"/>
+    </target>
+</project>
