@@ -4,9 +4,9 @@
         <mkdir dir="jarFiles"/>
     </target>
     <target name="archive" depends="createDir">
-        <javac destdir="origin" includeantruntime="false">
-            <src path="jarFiles"/>
-        </javac>
+        <jar>
+
+        </jar>
     </target>
     <target name="show" depends="archive">
         <java classname="Test" classpath="jarFiles"/>
