@@ -24,4 +24,14 @@
         <url-pattern>/list</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>jar</servlet-name>
+        <servlet-class>app.servlets.TestPackedJAR</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>jar</servlet-name>
+        <url-pattern>/jar</url-pattern>
+    </servlet-mapping>
+
 </web-app>

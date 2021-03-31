@@ -1,17 +1,21 @@
 <?xml version="1.0"?>
-<project name="TestJAR" default="show">
-    <target name="createDir">
-        <mkdir dir="jarFiles"/>
-    </target>
-    <target name="archive" depends="createDir">
-        <jar>
 
+<project name="TestJAR" default="archive">
+
+    <target name="createDir">
+        <mkdir dir="jarFiles/classes"/>
+        <mkdir dir="jarFiles/jars"/>
+    </target>
+
+    <target name="compile" depends="createDir">
+        <javac srcdir="origin" destdir="jarFiles/classes" includeantruntime="true">
+            <include name="*.java" />
+        </javac>
+    </target>
+
+    <target name="archive" depends="compile">
+        <jar destfile="jarFiles/jars/test.jar">
+            <fileset dir="jarFiles/classes"/>
         </jar>
-    </target>
-    <target name="show" depends="archive">
-        <java classname="Test" classpath="jarFiles"/>
-    </target>
-    <target name="clean">
-        <delete dir="JarFiles"/>
     </target>
 </project>
