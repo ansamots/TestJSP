@@ -14,7 +14,7 @@
     </target>
 
     <target name="archive" depends="compile">
-        <jar destfile="jarFiles/jars/test.jar">
+        <jar destfile="../../web/WEB-INF/lib/test.jar">
             <fileset dir="jarFiles/classes"/>
         </jar>
     </target>

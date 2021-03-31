@@ -1,6 +1,7 @@
 package app.servlets;
 
 import app.classes.CheckDirJar;
+import app.classes.TableWork;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -16,12 +17,14 @@ public class TestPackedJAR extends HttpServlet {
         String t = req.getParameter("table");
         if(t!=null){
             System.out.println("table");
-
+            TableWork tableWork = new TableWork();
+            req.setAttribute("table", tableWork.readFile());
         } else if(j!=null){
             System.out.println("jar");
             CheckDirJar checkDirJar = new CheckDirJar();
             checkDirJar.checkExistingFile();
-            req.setAttribute("jar", checkDirJar.checkExistingFile());
+            String s = checkDirJar.checkExistingFile();
+            req.setAttribute("jar", s);
         }
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("folderJSP/ArchiveTest.jsp");
         requestDispatcher.forward(req, resp);

@@ -1,4 +1,5 @@
-<%--
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.Arrays" %><%--
   Created by IntelliJ IDEA.
   User: Виктория
   Date: 30.03.2021
@@ -24,17 +25,28 @@
         <div>
             <% String j = (String)request.getAttribute("jar");
                 if(j!=null){
-                    out.println(j);
+                    out.println("<li>"+j+"<li>"+"<br>");
                 }
             %>
         </div>
         <div>
-            <%
-                String t = (String)request.getAttribute("table");
-                if(t!=null){
+            <table>
+                <caption>Вывод таблицы</caption>
+                    <%
+                        List<String> list = (List<String>) request.getAttribute("table");
+                        if(list!=null){
+                            for (String s: list) {
+                                out.print("<tr>");
+                                List<String> stringList = Arrays.asList(s.split(";"));
+                                for(String a: stringList){
+                                    out.println("<th>"+a+"</th>");
+                                }
 
-                }
-            %>
+                                out.print("<tr>");
+                            }
+                        }
+                    %>
+            </table>
         </div>
     </body>
 </html>

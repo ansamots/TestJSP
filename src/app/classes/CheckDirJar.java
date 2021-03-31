@@ -17,7 +17,7 @@ public class CheckDirJar {
 //    }
 
     private boolean checkJar(){
-        File file = new File("src/app/jarFiles/jars/test.jar");
+        File file = new File("F:\\jars\\test.jar");
         Path p = Paths.get(String.valueOf(file));
         if(Files.exists(p)){
             return true;
@@ -36,6 +36,7 @@ public class CheckDirJar {
             return "Jar file \"test.jar\" not existing";
         }
         WorkJar workJar = new WorkJar();
-        return workJar.printJar();
+        String s = workJar.printJar();
+        return s;
     }
 }
