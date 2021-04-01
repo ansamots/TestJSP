@@ -2,6 +2,7 @@ package app.servlets;
 
 import app.classes.CheckDirJar;
 import app.classes.TableWork;
+import app.classes.WorkJar;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -21,9 +22,8 @@ public class TestPackedJAR extends HttpServlet {
             req.setAttribute("table", tableWork.readFile());
         } else if(j!=null){
             System.out.println("jar");
-            CheckDirJar checkDirJar = new CheckDirJar();
-            checkDirJar.checkExistingFile();
-            String s = checkDirJar.checkExistingFile();
+            WorkJar workJar = new WorkJar();
+            String s = workJar.printJar();
             req.setAttribute("jar", s);
         }
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("folderJSP/ArchiveTest.jsp");
